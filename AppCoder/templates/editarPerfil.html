@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppCoder - Editar Perfil</title>
+</head>
+<body>
+    {% extends "padre.html" %}
+
+    {% load static %}
+    
+    {% block contenidoQueCambia %}
+    <header class="masthead">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">EDITAR PERFIL {{user.username}}</h1>
+                        <h2>Django - CoderHouse</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+        <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+        <h1>Formulario - Editar Perfil</h1>
+        <h1>De {{usuario}}</h1>
+        
+    
+        <form action="" method="POST">{% csrf_token %}
+    
+            <!-- Acá está la magia de Django-->
+            
+            <table>
+    
+                {{ miFormulario.as_table }}
+    
+            </table>
+    
+            <input type="submit", value="Enviar">
+    
+        </form>  
+    
+    {% endblock %}
+    
+</body>
+</html>

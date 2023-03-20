@@ -3,6 +3,10 @@
 {% load static %}
 
 {% block contenidoQueCambia%}
+        <div class="text-center">
+            <img height="40px" src="{{url}}">
+            <h3>Hola {{user.username}}</h3>
+        </div>
 
     <!--Colocamos lo que va a cambiar -->
     <header class="masthead">
@@ -18,6 +22,11 @@
             </div>
         </div>
     </header>
+    {% if mensaje %}
+    <h5>
+    <p>{{mensaje}}</p>
+    </h5>
+    {% endif %}
 
     <h1>Busqueda de Camadas</h1>
     <form action="/AppCoder/buscar/" method="GET">
