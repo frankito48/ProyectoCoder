@@ -37,6 +37,22 @@
         p {
             line-height: 1.5;
         }
+        .btn {
+            background-color: #a17d19; /* cambia el color a azul */
+            color: #fff; /* cambia el color del texto a blanco */
+            font-size: 15px; /* aumenta el tamaño del texto */
+            padding: 10px 20px; /* aumenta el padding para hacer el botón más grande */
+            border: none; /* elimina el borde del botón */
+            border-radius: 5px; /* añade bordes redondeados */
+            cursor: pointer; /* cambia el cursor al pasar por encima del botón */
+            transition: all 0.3s ease; /* añade una transición suave cuando se pasa el ratón por encima */
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #000000; /* cambia el color de fondo al pasar el ratón por encima */
+            color: white;
+        }
     </style>   
 </head>
 <body>
@@ -51,6 +67,8 @@
                     Con nuestro sitio web, queremos ofrecer una plataforma intuitiva y fácil de usar para nuestros usuarios, con un enfoque en la usabilidad y la estética. Estamos comprometidos a ofrecer una experiencia única y satisfactoria a nuestros visitantes.
                     
                     Nos enorgullece el trabajo que hemos realizado y estamos emocionados de compartirlo con el mundo. Siempre estamos abiertos a nuevas ideas y sugerencias, y esperamos continuar mejorando nuestro sitio web en el futuro. ¡Gracias por visitarnos!</p>
+
+                    <a href="{% url 'AppCoder:Inicio' %}" class="btn"> Volver a la pagina de Inicio</a>
             </div>
         </div>
     </div>

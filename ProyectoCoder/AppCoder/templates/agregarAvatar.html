@@ -6,21 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Cargar Avatar</title>
+    <style>
+        body {
+            background-image: url("/media/avatares/login.jpg");
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 55px;
+            background-color: aliceblue;
+        }
+        button {
+            margin-top: 10px;
+        }
+        .btn {
+            background-color: rgb(9, 169, 243); /* cambia el color a azul */
+            color: #fff; /* cambia el color del texto a blanco */
+            font-size: 15px; /* aumenta el tamaño del texto */
+            padding: 10px; /* aumenta el padding para hacer el botón más grande */
+            border: none; /* elimina el borde del botón */
+            border-radius: 5px; /* añade bordes redondeados */
+            cursor: pointer; /* cambia el cursor al pasar por encima del botón */
+            transition: all 0.3s ease; /* añade una transición suave cuando se pasa el ratón por encima */
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #000000; /* cambia el color de fondo al pasar el ratón por encima */
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #008000; /* Cambia el color de fondo del botón */
+            color: #fff; /* Cambia el color del texto del botón */
+            font-size: 15px; /* Aumenta el tamaño del texto del botón */
+            padding: 10px; /* Ajusta el relleno del botón */
+            border: none; /* Elimina el borde del botón */
+            border-radius: 5px; /* Agrega bordes redondeados al botón */
+            cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+            transition: all 0.3s ease; /* Añade una transición suave al botón */
+            text-decoration: none; /* Elimina la decoración de texto */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000000; /* Cambia el color de fondo del botón al pasar el ratón por encima */
+            color:white;
+        }
+    </style>
 </head>
 <body>
 
-    <h3>Cargar Avatar</h3>
+   <div class="container">
     <form method="POST" enctype="multipart/form-data">
+        <h3>Cargar Avatar</h3>
 
         {% csrf_token %}
         {{ miFormulario.as_p  }}
       
 
-        <input type="submit" value="Actualizar">
+        <input type="submit" value="Actualizar" class="btn-actualizar">
+        <a href="{% url 'AppCoder:Inicio' %}" class="btn"> Volver a la pagina de Inicio</a>
 
 
     </form>
-
+   </div>
 
     
 </body>
