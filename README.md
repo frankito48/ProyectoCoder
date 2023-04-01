@@ -29,3 +29,28 @@ Además, tendrás 3 apartados para poder registar Alumnos, Profesores y Entregab
 
 Para conocer mas acerca de nosotros, ingresa a la sección "About Us" de la página.
 Gracias
+
+Creamos un SuperUser para que el tutor pueda ver el admin: 
+Nombre de usuario: tutorcoder
+Contraseña: comision34670
+
+
+------------------------------- Division del Trabajo -------------------------------
+
+Valentino paterno:
+
+- Se encargo de modelar la pagina web con imágenes.
+- Realizo las herencias de los botones de inicio de sesion, cerrar sesion y registrarse.
+- Creo la plantilla para los botones que no funcionan en la pagina.
+- Añadio los formularios de Agregar profesor/es, Agregar estudiante/es y el formulario para editar perfil.
+
+Franco Romero:
+
+- Creo las plantillas de Inicio, Curso, Estudiantes, Profesores Entregables y About Us.
+- Añadio los formularios para la busqueda de camadas, Agregar cursos y agregar avatares.
+- Decoro la pagina de inicio de sesion y cerrar sesion con imagenes y diseños para los formularios y añadio botones en el   logout para volver al login.
+- Añadio la informacion sobre el About Us.
+- Realizo las herencias enntre las plantillas de Inicio, Cursos, Estudiantes, Profesores y Entregables.
+
+
+
