@@ -5,22 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        body {
+            background-image: url("/media/avatares/login.jpg");
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 55px;
+            background-color: aliceblue;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
 
-    <form action="" method="POST">
-
-        {% csrf_token %}
-
-        {{form.as_p}}
-
-        <button type="submit"> Iniciar Sesión</button>
-
-
-    </form>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" style="background-color: rgb(215, 128, 226);">Iniciar Sesión</button>
+            <button type="submit" name="login_invitado" value="true" style="background-color: rgb(192, 192, 192);">Ingresar como invitado</button>
+        </form>
+    </div>
 
 
     
 </body>
 </html>
+

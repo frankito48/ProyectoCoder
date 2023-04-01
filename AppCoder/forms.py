@@ -48,8 +48,3 @@ class UserEditForm(UserCreationForm):
 class AvatarFormulario(forms.Form):
     username = forms.ModelChoiceField(queryset=User.objects.all())
     image = forms.ImageField(required=True)
-
-    class Meta:
-        model = User
-        fields = ['image']
-        help_texts = {k:"" for k in fields}

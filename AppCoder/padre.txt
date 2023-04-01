@@ -33,10 +33,8 @@
                 <a class="navbar-brand" href="{% url 'AppCoder:Estudiantes' %}"> Estudiantes</a>
                 <a class="navbar-brand" href="{% url 'AppCoder:Profesores' %}"> Profesores</a>
                 <a class="navbar-brand" href="{% url 'AppCoder:Entregables' %}"> Entregables</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:About_Us' %}"> About Us</a>
                 {% if not request.user.is_login_invitado %}
                 <a class="btn btn-primary" href="{% url 'AppCoder:Login' %}">Iniciar Sesión</a>
-                <a class="btn btn-primary" href="{% url 'AppCoder:Register' %}">Registrarse</a>
                 {% endif %}
 
                 {% if request.user.is_authenticated %}
@@ -50,7 +48,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{% url 'AppCoder:EditarPerfil' %}">Editar Perfil</a>
                         <a class="dropdown-item" href="{% url 'AppCoder:AgregarAvatar' %}">Agregar Avatar</a>
-                        <a class="dropdown-item" href="{% url 'AppCoder:Logout' %}">Cerrar Sesión</a>
+                        <a class="dropdown-item" href="{% url 'AppCoder:Login' %}">Cerrar Sesión</a>
                     </div>
                 </div>
                 {% endif %}
@@ -69,26 +67,26 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="aboutus">About Us</a></li>
+                            <li class="list-inline-item"><a href="404">About</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="proximamente">Contact</a></li>
+                            <li class="list-inline-item"><a href="404">Contact</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="proximamente">Terms of Use</a></li>
+                            <li class="list-inline-item"><a href="404">Terms of Use</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="proximamente">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="404">Privacy Policy</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Franco Romero & Valentino Paterno company 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Franco Romero 2023. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="proximamente"><i class="bi-facebook fs-3"></i></a>
+                                <a href="404"><i class="bi-facebook fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="proximamente"><i class="bi-twitter fs-3"></i></a>
+                                <a href="404"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="proximamente"><i class="bi-instagram fs-3"></i></a>
+                                <a href="404"><i class="bi-instagram fs-3"></i></a>
                             </li>
                         </ul>
                     </div>

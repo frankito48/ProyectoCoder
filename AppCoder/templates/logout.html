@@ -5,9 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppCoder - logout</title>
+    <style>
+        body {
+            background-image: url("/media/avatares/login.jpg");
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 55px;
+            background-color: aliceblue;
+        }
+        button {
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-size:24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+
+        }
+
+        .btn-primary {
+            background-color: rgb(9, 169, 243);
+            color:black;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover{
+            background-color: black;
+            color: azure;
+        }
+    </style>
 </head>
 <body>
-    <h1>Has cerrado sesion.</h1>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+        <h1>Has cerrado sesion.</h1>
+         <a class="btn btn-primary" href="{% url 'AppCoder:Login' %}">Volver al Ingresar</a>
+        </form>
+
+    </div>
     
 </body>
 </html>

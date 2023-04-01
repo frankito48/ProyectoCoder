@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from AppCoder.models import Curso, Profesor, Estudiante, Entregable,Avatar
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from AppCoder.forms import CursoFormulario, ProfesorFormulario, EstudiantesFormulario, EntregableFormulario, UserRegisterForm,AvatarFormulario
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, login
 from AppCoder.forms import User, UserRegisterForm, UserEditForm, CursoFormulario, ProfesorFormulario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,40 +15,42 @@ from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 
-@login_required
+@login_required 
 def inicio(request):
     avatares = Avatar.objects.filter(user=request.user.id)
-    print(avatares[0].imagen.url)
+    
     return render(request, 'inicio.html', {'url': avatares[0].imagen.url})
-     
+   
 def login_request(request):
+    avatares = Avatar.objects.filter(user=request.user.id)
 
-
-      if request.method == "POST":
-            form = AuthenticationForm(request, data = request.POST)
-
+    if request.method == "POST":
+        # Comprobar si se ha enviado el formulario de inicio de sesión como invitado
+        if 'login_invitado' in request.POST:
+            # Autenticar un usuario invitado
+            username = 'invitado'
+            password = 'invitado123'
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return render(request,"inicio.html", {"mensaje":"Usted a ingresado como invitado Bienvenido!"} )
+        else:
+            # Procesar el inicio de sesión normal
+            form = AuthenticationForm(request, data=request.POST)
             if form.is_valid():
-                  usuario = form.cleaned_data.get('username')
-                  contra = form.cleaned_data.get('password')
-
-                  user = authenticate(username=usuario, password=contra)
-
-            
-                  if user is not None:
-                        login(request, user)
-                       
-                        return render(request,"inicio.html",  {"mensaje":f"Bienvenido {usuario} :)"} )
-                  else:
-                        
-                        return render(request,"inicio.html", {"mensaje":"Error, datos incorrectos"} )
-
+                usuario = form.cleaned_data.get('username')
+                contra = form.cleaned_data.get('password')
+                user = authenticate(username=usuario, password=contra)
+                if user is not None:
+                    login(request, user)
+                    return render(request,"inicio.html",  {"mensaje":f"Bienvenido {usuario} :)"} )
+                else:
+                    return render(request, "login.html", {"form": form, "mensaje": "Error, datos incorrectos"})
             else:
-                        
-                        return render(request,"inicio.html" ,  {"mensaje":"Error, formulario erroneo"})
+                return render(request, "login.html", {"form": form, "mensaje": "Error, formulario erroneo"})
+    else:
+        form = AuthenticationForm()
+        return render(request, "login.html", {"form": form})
 
-      form = AuthenticationForm()
-
-      return render(request,"login.html", {'form':form} )
 
 def register(request):
 
@@ -70,6 +72,8 @@ def register(request):
       return render(request,"registro.html" ,  {"form":form})
 
 def cursos(request):
+    avatares = Avatar.objects.filter(user=request.user.id)
+    
     if request.method == 'POST':
         miFormulario = CursoFormulario(request.POST)
 
@@ -82,12 +86,12 @@ def cursos(request):
             curso=Curso(nombre=informacion['nombre'], camada=informacion['camada'])
             curso.save()
 
-            return render(request, 'inicio.html')
+            return render(request, 'inicio.html',)
 
     else: 
         miFormulario = CursoFormulario()
 
-    return render(request, "cursos.html", {'miFormulario':miFormulario})
+    return render(request, "cursos.html", {'miFormulario':miFormulario,'url': avatares[0].imagen.url})
 
 def leerProfesores(request):
     profesores = Profesor.objects.all()
@@ -123,6 +127,8 @@ def editarProfesor(request, profesor_nombre):
     return render(request, "editarprofesor.html", {"miFormulario":miFormulario, "profesor_nombre": profesor_nombre})
 
 def profesores(request):
+    avatares = Avatar.objects.filter(user=request.user.id)
+    
     if request.method == 'POST':
         miFormulario = ProfesorFormulario(request.POST)
 
@@ -143,7 +149,7 @@ def profesores(request):
     else: 
         miFormulario = ProfesorFormulario()
 
-    return render(request, "Profesores.html", {'miFormulario':miFormulario})
+    return render(request, "Profesores.html", {'miFormulario':miFormulario,'url': avatares[0].imagen.url})
 
 def busquedaCamada(request):
     return render(request, 'inicio.html')
@@ -162,6 +168,8 @@ def buscar(request):
     return render(request, 'inicio.html', {"respuesta":respuesta}) 
 
 def estudiantes(request):
+    avatares = Avatar.objects.filter(user=request.user.id)
+    
     if request.method == 'POST':
         miFormulario = EstudiantesFormulario(request.POST)
 
@@ -181,9 +189,11 @@ def estudiantes(request):
     else: 
         miFormulario = EstudiantesFormulario()
 
-    return render(request, "estudiantes.html", {'miFormulario':miFormulario})
+    return render(request, "estudiantes.html", {'miFormulario':miFormulario,'url': avatares[0].imagen.url})
 
 def entregables(request):
+    avatares = Avatar.objects.filter(user=request.user.id)
+
     if request.method == 'POST':
         miFormulario = EntregableFormulario(request.POST)
 
@@ -203,7 +213,7 @@ def entregables(request):
     else: 
         miFormulario = EntregableFormulario()
 
-    return render(request, "entregables.html", {'miFormulario':miFormulario})
+    return render(request, "entregables.html", {'miFormulario':miFormulario,'url': avatares[0].imagen.url})
 
 @login_required
 def editarPerfil(request):
@@ -237,12 +247,12 @@ def agregarAvatar(request):
 
             miFormulario = AvatarFormulario(request.POST, request.FILES) #aquí mellega toda la información del html
 
-            if miFormulario.is_valid:   #Si pasó la validación de Django
+            if miFormulario.is_valid():   #Si pasó la validación de Django
 
 
                   u = User.objects.get(username=request.user)
                 
-                  avatar = Avatar (user=u, imagen=miFormulario.cleaned_data['imagen']) 
+                  avatar = Avatar (user=u, imagen=miFormulario.cleaned_data['image']) 
       
                   avatar.save()
 
@@ -254,7 +264,11 @@ def agregarAvatar(request):
 
       return render(request, "agregarAvatar.html", {"miFormulario":miFormulario})
 
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
 
+def proximamente(request):
+    return render(request, 'proximamente.html')
 
 class CursoList(ListView):
     model = Curso
@@ -280,3 +294,10 @@ class CursoDelete(DeleteView):
     model = Curso
     template_name = "curso_confirm_delete.html"
     success_url = "/AppCoder/curso/list"
+    
+
+def login_invitado(request):
+    return render(request, 'inicio.html')
+
+def aboutus(request):
+    return render(request, 'aboutus.html')

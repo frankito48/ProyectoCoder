@@ -127,4 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/AppCoder/login'
 
 MEDIA_URL = '/media/'
-MEDIAROOT_URL = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+handler404 = 'AppCoder.views.custom_404'
+
