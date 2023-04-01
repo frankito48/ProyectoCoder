@@ -56,10 +56,10 @@ Franco Romero:
 
 ----- PENDIENTES -----
 
-[] Video con la demostracion de como funciona la pagina web.
-[] Modelar mejor cada plantilla tanto de los templates como de los formularios.
-[] Poder ver extraer informacion de la base de datos de los (Profesores, Estudiantes, Entregables)
-[] Mnesajeria (No obligatorio).
+[x] Video con la demostracion de como funciona la pagina web.
+[x] Modelar mejor cada plantilla tanto de los templates como de los formularios.
+[x] Poder ver extraer informacion de la base de datos de los (Profesores, Estudiantes, Entregables)
+[x] Mnesajeria (No obligatorio).
 
 
 
