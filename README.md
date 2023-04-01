@@ -39,27 +39,27 @@ Contraseña: comision34670
 
 Valentino paterno:
 
-- Se encargo de modelar la pagina web con imágenes.
-- Realizo las herencias de los botones de inicio de sesion, cerrar sesion y registrarse.
-- Creo la plantilla para los botones que no funcionan en la pagina.
-- Añadio los formularios de Agregar profesor/es, Agregar estudiante/es y el formulario para editar perfil.
+* Se encargo de modelar la pagina web con imágenes.
+* Realizo las herencias de los botones de inicio de sesion, cerrar sesion y registrarse.
+* Creo la plantilla para los botones que no funcionan en la pagina.
+* Añadio los formularios de Agregar profesor/es, Agregar estudiante/es y el formulario para editar perfil.
 
 Franco Romero:
 
-- Creo las plantillas de Inicio, Curso, Estudiantes, Profesores Entregables y About Us.
-- Añadio los formularios para la busqueda de camadas, Agregar cursos y agregar avatares.
-- Decoro la pagina de inicio de sesion y cerrar sesion con imagenes y diseños para los formularios y añadio botones en el   logout para volver al login.
-- Añadio la informacion sobre el About Us.
-- Realizo las herencias enntre las plantillas de Inicio, Cursos, Estudiantes, Profesores y Entregables.
+* Creo las plantillas de Inicio, Curso, Estudiantes, Profesores Entregables y About Us.
+* Añadio los formularios para la busqueda de camadas, Agregar cursos y agregar avatares.
+* Decoro la pagina de inicio de sesion y cerrar sesion con imagenes y diseños para los formularios y añadio botones en el   logout para volver al login.
+* Añadio la informacion sobre el About Us.
+* Realizo las herencias enntre las plantillas de Inicio, Cursos, Estudiantes, Profesores y Entregables.
 
 
 
 ----- PENDIENTES -----
 
-[x] Video con la demostracion de como funciona la pagina web.
-[x] Modelar mejor cada plantilla tanto de los templates como de los formularios.
-[x] Poder ver extraer informacion de la base de datos de los (Profesores, Estudiantes, Entregables)
-[x] Mnesajeria (No obligatorio).
+* [x] Video con la demostracion de como funciona la pagina web.
+* [x] Modelar mejor cada plantilla tanto de los templates como de los formularios.
+* [x] Poder ver extraer informacion de la base de datos de los (Profesores, Estudiantes, Entregables).
+* [x] Mnesajeria (No obligatorio).
 
 
 
